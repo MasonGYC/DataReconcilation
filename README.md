@@ -3,6 +3,9 @@ Guo Yuchen 1004885
 
 This program is for comparing 2 csv files and record their difference in a new csv file.
 
+### Use Case Diagram
+See `use_case_diagram.png`.
+
 ### Getting Started (Installation)
 
 1. Clone/download the repository to your computer;
