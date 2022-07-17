@@ -1,9 +1,6 @@
 import static org.junit.Assert.*;
 import java.io.File;
 import org.junit.Test;
-import java.nio.file.Paths;
-
-
 
 public class CompareFileTest { 
    @Test
@@ -11,7 +8,7 @@ public class CompareFileTest {
 
     // convert file names to absolute paths
     String cwd = "D:/DataReconcilation/"; // replace with files' dir path
-    String filein1 = cwd + "sample_file_1.csv";
+    String filein1 = cwd + "sample_file_1.xlsx";
     String filein2 = cwd + "sample_file_3.csv";
     String fileout1 = cwd + "compare_out.csv";
     String fileout2 = cwd + "test_out.csv";

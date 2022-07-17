@@ -45,7 +45,7 @@ public class CompareFile {
 
       boolean found = false;
       if (f2_list.contains(s1)){
-        System.out.println(f2_list.contains(s1));
+        // System.out.println(f2_list.contains(s1));
         found = true;
       }
       if (!found){
