@@ -4,38 +4,8 @@ import java.util.*;
 import java.io.FileWriter;
 
 public class CompareFile {
-  public void compare(String[] filenames) throws Exception {
-    // File file1 = new File("sample_file_1.csv");
-    // File file2 = new File("sample_file_3.csv");
-    // File fileOut = new File("compare_out.csv");
 
-    File file1 = new File(filenames[0]);
-    File file2 = new File(filenames[1]);
-    File fileOut = new File(filenames[2]);
-    String mode = filenames[3];
-
-    // reader
-    Scanner scanner1 = new Scanner(file1);
-    Scanner scanner2 = new Scanner(file2);
-
-    scanner1.useDelimiter(",");
-    scanner2.useDelimiter(",");
-
-    // writer
-    FileWriter fileWriter = new FileWriter(fileOut);
-
-    // store f2 values
-    Map<String, Set<String>> f2_map = new HashMap<String, Set<String>>();
-    Map<String, String> f2_text_map = new HashMap<String, String>();
-
-    // header
-    if (mode == "compare") {
-      // has headers
-      String[] h1 = scanner1.nextLine().split(",");
-      String[] h2 = scanner2.nextLine().split(",");
-
-    }
-
+  public void storeFile2(Scanner scanner2,Map<String, Set<String>> f2_map, Map<String, String> f2_text_map){
     while (scanner2.hasNextLine()) {
       String s2_ori_text = scanner2.nextLine();
       String[] s2_ori =s2_ori_text.split(",");
@@ -49,6 +19,12 @@ public class CompareFile {
       f2_map.put(id, hSet);
       f2_text_map.put(id, s2_ori_text);
     }
+
+  }
+
+  public void writeDiff(File fileOut, Scanner scanner1, Map<String, Set<String>> f2_map, Map<String, String> f2_text_map) throws Exception{
+    // writer
+    FileWriter fileWriter = new FileWriter(fileOut);
 
     while (scanner1.hasNextLine()) {
       String s1_ori_text = scanner1.nextLine();
@@ -68,8 +44,6 @@ public class CompareFile {
       }
 
       if (f2_map.get(s1_id).equals(hSet)) {
-        // System.out.println(f2_map.get(s1_id));
-        // System.out.println(hSet);
         found = true;
       }
       if (!found) {
@@ -83,16 +57,49 @@ public class CompareFile {
 
     }
 
-    // close
-    scanner1.close();
-    scanner2.close();
     fileWriter.flush();
     fileWriter.close();
   }
 
+  public void compare(String[] filenames) throws Exception {
+
+    File file1 = new File(filenames[0]);
+    File file2 = new File(filenames[1]);
+    File fileOut = new File(filenames[2]);
+    String mode = filenames[3];
+
+    // reader
+    Scanner scanner1 = new Scanner(file1);
+    Scanner scanner2 = new Scanner(file2);
+
+    scanner1.useDelimiter(",");
+    scanner2.useDelimiter(",");
+
+    // store f2 values
+    Map<String, Set<String>> f2_map = new HashMap<String, Set<String>>();
+    Map<String, String> f2_text_map = new HashMap<String, String>();
+
+    // header
+    if (mode == "compare") {
+      // has headers
+      String[] h1 = scanner1.nextLine().split(",");
+      String[] h2 = scanner2.nextLine().split(",");
+
+    }
+
+    storeFile2(scanner2,f2_map,f2_text_map);
+    writeDiff(fileOut,scanner1,f2_map,f2_text_map);
+
+    // close
+    scanner1.close();
+    scanner2.close();
+
+  }
+
+
   public static void main(String[] args) {
     try {
-      String[] filenames = { "sample_file_1_row_col.csv", "sample_file_3.csv", "compare_out_a.csv", "compare" };
+      String[] filenames = { "compare_out.csv", "test_out.csv", "compare_out_a.csv", "test" };
       CompareFile compareFile = new CompareFile();
       compareFile.compare(filenames);
     } catch (Exception e) {
