@@ -20,7 +20,7 @@ Replace the filenames in `CompareFile.java.main` function with 2 files that you 
 ### CSV input file format
 Example:
 
-1. id column must be the leftmost column, and numbers must be consecutive
+1. id column must be the leftmost column, and must be unique
 2. 2 compared files must have same number of rows
 3. 2 compared files must have headers
 
