@@ -39,16 +39,16 @@ public class CompareFile {
 
       boolean found = false;
       if (f2_map.get(s1_id) == null){
-      System.out.println(s1_id);
-      System.out.println(f2_map.keySet());
+      // System.out.println(s1_id);
+      // System.out.println(f2_map.keySet());
       }
 
       if (f2_map.get(s1_id).equals(hSet)) {
         found = true;
       }
       if (!found) {
-        System.out.println(f2_map.get(s1_id));
-        System.out.println(hSet);
+        // System.out.println(f2_map.get(s1_id));
+        // System.out.println(hSet);
       
         fileWriter.append(s1_ori_text + "\n");
         fileWriter.append(f2_text_map.get(s1_id) + "\n");

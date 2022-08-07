@@ -29,9 +29,9 @@ public class CompareFileTestFuzzer {
     CompareFile compareFile = new CompareFile(); 
 
     // test
-    String[] filenames = {fi1,fi2,fo1,"compare"};
+    String[] filenames = {fi1,fi2,fo1,"test"};
     compareFile.compare(filenames);
-    assertEquals(new File(fAns1).length()-6, new File(fo1).length());
+    assertEquals(new File(fAns1).length(), new File(fo1).length());
 
 
    

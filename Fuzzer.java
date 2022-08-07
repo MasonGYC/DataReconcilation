@@ -1,12 +1,8 @@
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.util.*;
 
-import javax.swing.ViewportLayout;
 
 public class Fuzzer {
     
@@ -14,8 +10,8 @@ public class Fuzzer {
     public String[] writeFuzzyFiles(String filebase) throws Exception{
         // filenames
         String f1 = filebase+"_1.csv";
-        String f2 =filebase+"_2.csv";
-        String fa =filebase+"_ans.csv";
+        String f2 = filebase+"_2.csv";
+        String fa = filebase+"_ans.csv";
         String[] filenames = {f1,f2,fa};
 
         // files
@@ -33,7 +29,7 @@ public class Fuzzer {
 
         Random random = new Random();
         int rows = random.nextInt((int)Math.pow(10, 3));
-                System.out.println(rows);
+                // System.out.println(rows);
 
         for(int i = 1; i < rows;i++){
             HashMap<String, String> randomAccount = generateRandomAccount();
@@ -129,15 +125,41 @@ public class Fuzzer {
     }
 
     
+  // public static void main(String[] args) {
+  //   try {
+  //       // String filebase = args[0];
+  //       String filebase = "fuzzerInput";
+  //       Fuzzer fuzzer = new Fuzzer();
+  //       fuzzer.writeFuzzyFiles(filebase);
+  //   } catch (Exception e) {
+  //     System.out.println(e);
+  //     ;
+  //   }
+
+  // }
   public static void main(String[] args) {
-    try {
-        // String filebase = args[0];
+      try {
         String filebase = "fuzzerInput";
         Fuzzer fuzzer = new Fuzzer();
-        fuzzer.writeFuzzyFiles(filebase);
-    } catch (Exception e) {
-      System.out.println(e);
-      ;
+        String[] filesubnames = fuzzer.writeFuzzyFiles(filebase);
+
+        // convert file names to absolute paths
+        String cwd = "D:/DataReconcilation/"; // replace with files' dir path
+        String fi1 = cwd + filesubnames[0];
+        String fi2 = cwd + filesubnames[1];
+        String fo1 = cwd + "compare_out.csv";
+        String fAns1 = cwd + filesubnames[2];
+
+        CompareFile compareFile = new CompareFile(); 
+
+        // test
+        String[] filenames = {fi1,fi2,fo1,"test"};
+        compareFile.compare(filenames);
+        System.out.println(new File(fAns1).length()+ new File(fo1).length());
+      } 
+      catch (Exception e) {
+        System.out.println(e);
+        
     }
 
   }
