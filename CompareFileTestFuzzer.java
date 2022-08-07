@@ -24,6 +24,7 @@ public class CompareFileTestFuzzer {
     String fi1 = cwd + filesubnames[0];
     String fi2 = cwd + filesubnames[1];
     String fo1 = cwd + "compare_out.csv";
+    String fo2 = cwd + "compare_out_a.csv";
     String fAns1 = cwd + filesubnames[2];
 
     CompareFile compareFile = new CompareFile(); 
@@ -31,7 +32,9 @@ public class CompareFileTestFuzzer {
     // test
     String[] filenames = {fi1,fi2,fo1,"test"};
     compareFile.compare(filenames);
-    assertEquals(new File(fAns1).length(), new File(fo1).length());
+    String[] filenames1 = {fo1,fAns1,fo2};
+    compareFile.compareAnswer(filenames1);
+    assertEquals(0, new File(fo2).length());
 
 
    

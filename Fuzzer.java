@@ -1,10 +1,13 @@
 import java.io.File;
 import java.io.FileWriter;
+import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.*;
 
 
 public class Fuzzer {
+
+    ArrayList<String> used_keys = new ArrayList<>();
     
 
     public String[] writeFuzzyFiles(String filebase) throws Exception{
@@ -34,7 +37,7 @@ public class Fuzzer {
         for(int i = 1; i < rows;i++){
             HashMap<String, String> randomAccount = generateRandomAccount();
             
-            int selector = random.nextInt(20);
+            int selector = random.nextInt(1,20);
             Boolean writeAns;
 
             if (selector <5){
@@ -98,7 +101,13 @@ public class Fuzzer {
       private HashMap<String, String> generateRandomAccount() {
         Random random = new Random();
         HashMap<String, String> account = new HashMap<String, String>();
-        account.put("CustomerID",generateRandomString(random.nextInt(50))+ ",");
+        // unique id
+        String k = generateRandomString(random.nextInt(50))+ ",";
+        while (used_keys.contains(k)){
+          k = generateRandomString(random.nextInt(50))+ ",";
+        }
+        account.put("CustomerID",k);
+        used_keys.add(k);
         account.put("AccountNo",generateRandomString(random.nextInt(50))+ ",");
         account.put("Balance",generateRandomString(random.nextInt(50))+ ",");
         account.put("Type",generateRandomString(random.nextInt(50))+ ",");
@@ -148,6 +157,7 @@ public class Fuzzer {
         String fi1 = cwd + filesubnames[0];
         String fi2 = cwd + filesubnames[1];
         String fo1 = cwd + "compare_out.csv";
+        String fo2 = cwd + "compare_out_a.csv";
         String fAns1 = cwd + filesubnames[2];
 
         CompareFile compareFile = new CompareFile(); 
@@ -155,7 +165,10 @@ public class Fuzzer {
         // test
         String[] filenames = {fi1,fi2,fo1,"test"};
         compareFile.compare(filenames);
-        System.out.println(new File(fAns1).length()+ new File(fo1).length());
+
+        String[] filenames1 = {fo1,fAns1,fo2};
+        compareFile.compareAnswer(filenames1);
+        System.out.println(new File(fo2).length());
       } 
       catch (Exception e) {
         System.out.println(e);
