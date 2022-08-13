@@ -158,7 +158,7 @@ public class CompareFile {
   }
   public static void main(String[] args) {
     try {
-      String[] filenames = { "compare_out.csv", "fuzzerInput_ans.csv", "compare_out_a.csv"};
+      String[] filenames = { "data/compare_out.csv", "data/fuzzerInput_ans.csv", "out/compare_out.csv"};
       CompareFile compareFile = new CompareFile();
       // compareFile.compare(filenames);
       compareFile.compareAnswer(filenames);

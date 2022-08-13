@@ -12,8 +12,8 @@ public class CompareFileUnitTest {
     private Scanner scanner;
     private Map<String, Set<String>> f2_map = new HashMap<String, Set<String>>();
     private Map<String, String> f2_text_map = new HashMap<String, String>();
-    File fileIn = new File("D:/DataReconcilation/unit_test_in.csv");
-    File fileOut = new File("D:/DataReconcilation/unit_test_out.csv");
+    File fileIn = new File("D:/DataReconcilation/data/unit_test_in.csv");
+    File fileOut = new File("D:/DataReconcilation/out/unit_test_out.csv");
     CompareFile compareFile;
 
     @Before
@@ -59,10 +59,10 @@ public class CompareFileUnitTest {
 
     // convert file names to absolute paths
     String cwd = "D:/DataReconcilation/"; // replace with files' dir path
-    String fi1 = cwd + "sample_file_1.csv";
-    String fi2 = cwd + "sample_file_3.csv";
-    String fo1 = cwd + "compare_out.csv";
-    String fAns1 = cwd + "sample_file_output_comparing_1_and_3.csv";
+    String fi1 = cwd + "data/sample_file_1.csv";
+    String fi2 = cwd + "data/sample_file_3.csv";
+    String fo1 = cwd + "out/compare_out.csv";
+    String fAns1 = cwd + "data/sample_file_output_comparing_1_and_3.csv";
 
     // test
     String[] filenames = {fi1,fi2,fo1,"compare"};

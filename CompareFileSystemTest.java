@@ -22,26 +22,28 @@ public class CompareFileSystemTest {
       // convert file names to absolute paths
       String cwd = "D:/DataReconcilation/"; // replace with files' dir path
       // filein
-      String fi1 = cwd + "sample_file_1.csv";
-      String fi2 = cwd + "sample_file_3.csv";
-      String fi1r = cwd + "sample_file_1_row.csv";
-      String fi1c = cwd + "sample_file_1_col.csv";
-      String fi1rc = cwd + "sample_file_1_row_col.csv";
+      String datapath = "data/";
+      String fi1 = cwd + datapath + "data/sample_file_1.csv";
+      String fi2 = cwd + datapath + "sample_file_3.csv";
+      String fi1r = cwd + datapath + "sample_file_1_row.csv";
+      String fi1c = cwd + datapath + "sample_file_1_col.csv";
+      String fi1rc = cwd + datapath + "sample_file_1_row_col.csv";
 
       //file out
-      String fo1 = cwd + "compare_out_1.csv";
-      String fo2 = cwd + "compare_out_2.csv";
-      String fo3 = cwd + "compare_out_3.csv";
-      String fo4 = cwd + "compare_out_4.csv";
+      String outpath = "out/";
+      String fo1 = cwd + outpath + "compare_out_1.csv";
+      String fo2 = cwd + outpath + "compare_out_2.csv";
+      String fo3 = cwd + outpath + "compare_out_3.csv";
+      String fo4 = cwd + outpath + "compare_out_4.csv";
 
       // file out test
-      String fot1 = cwd + "test_out_1.csv";
-      String fot2 = cwd + "test_out_2.csv";
-      String fot3 = cwd + "test_out_3.csv";
-      String fot4 = cwd + "test_out_4.csv";
+      String fot1 = cwd + outpath + "test_out_1.csv";
+      String fot2 = cwd + outpath + "test_out_2.csv";
+      String fot3 = cwd + outpath + "test_out_3.csv";
+      String fot4 = cwd + outpath + "test_out_4.csv";
 
       // answer
-      String fAns1 = cwd + "sample_file_output_comparing_1_and_3.csv";
+      String fAns1 = cwd + datapath + "sample_file_output_comparing_1_and_3.csv";
 
         return Arrays.asList (new String [][][] {
          {{fi1,fi2,fo1},{fo1,fAns1,fot1}}, // same row & col orders
