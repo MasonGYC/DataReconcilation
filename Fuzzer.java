@@ -133,19 +133,6 @@ public class Fuzzer {
         return generatedString;
     }
 
-    
-  // public static void main(String[] args) {
-  //   try {
-  //       // String filebase = args[0];
-  //       String filebase = "fuzzerInput";
-  //       Fuzzer fuzzer = new Fuzzer();
-  //       fuzzer.writeFuzzyFiles(filebase);
-  //   } catch (Exception e) {
-  //     System.out.println(e);
-  //     ;
-  //   }
-
-  // }
   public static void main(String[] args) {
       try {
         String filebase = "fuzzerInput";
@@ -154,11 +141,11 @@ public class Fuzzer {
 
         // convert file names to absolute paths
         String cwd = "D:/DataReconcilation/"; // replace with files' dir path
-        String fi1 = cwd + filesubnames[0];
-        String fi2 = cwd + filesubnames[1];
-        String fo1 = cwd + "compare_out.csv";
-        String fo2 = cwd + "compare_out_a.csv";
-        String fAns1 = cwd + filesubnames[2];
+        String fi1 = cwd + "data/" + filesubnames[0];
+        String fi2 = cwd + "data/" + filesubnames[1];
+        String fo1 = cwd + "out/" + "compare_out.csv";
+        String fo2 = cwd + "out/" + "compare_out_test.csv";
+        String fAns1 = cwd + "data/" + filesubnames[2];
 
         CompareFile compareFile = new CompareFile(); 
 
