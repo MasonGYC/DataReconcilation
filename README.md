@@ -26,9 +26,9 @@ Example:
 4. 2 files must have same headers
 5. each row must have same number of data as header suggests
 
-### Testing (week9)
+### Testing (week9,10,12)
  <!-- Work out an equivalence class partitioning and boundary value analysis for blackbox testing of your program. Explain all the equivalence classes, examples of boundary/middle values in each equivalence class and the rationale behind your choices. -->
- Equivalence classes:
+**Equivalence classes:**
  1. input file data format - row& column order  
  >*To determine rows and columns in different order with the same data can be compared*  
  - same order for row and column  
@@ -47,5 +47,12 @@ Example:
  - middle values: 2, 6
 
 
+**System Testing**  
+`CompareFileSystemTest.Java`  
+**Unit Testing**  
+`CompareFileUnitTest.Java`  
+**Fuzzy Testing**  
+`CompareFileUnitTest.Java`, `Fuzzer.java`
 
-
+### Bugs in groupmates' code (week13)
+See `docs\bug_discover_report.md`
