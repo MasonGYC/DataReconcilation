@@ -1,5 +1,4 @@
 # Bugs discovered in project mates' code
-### Soh Pei Xuan & Adelle Chan
 
 ## 1. Not able to deal with duplicated ids
 > E.g.  
@@ -29,13 +28,13 @@ Customer ID#,Account No.,Currency,Type, **Balance**
 
 > ***File input 1:***  
 "Customer ID#","Account No.","Currency","Type","Balance"
-"ID1","","USD","SAVINGS",**"962518"**
-"ID3","BOS656613",**"111"**,"CURRENT","595290"  
+"ID1","","USD","SAVINGS",**"962510"**
+"ID3","BOS656613",**"USD"**,"CURRENT","595290"  
   
 > ***File input 2:***   
 "Customer ID#","Account No.","Currency","Type","Balance"
-"ID1","","USD","SAVINGS",**"962510"**
-"ID3","BOS656613",**"USD"**,"CURRENT","595290"
+"ID1","","USD","SAVINGS",**"962518"**
+"ID3","BOS656613",**"111"**,"CURRENT","595290"
 
 
 > ***Compared output:***   

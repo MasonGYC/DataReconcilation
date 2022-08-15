@@ -55,4 +55,16 @@ Example:
 `CompareFileUnitTest.Java`, `Fuzzer.java`
 
 ### Bugs in groupmates' code (week13)
-See `docs\bug_discover_report.md`
+Tested for:  
+Adelle Chan: https://github.com/dellebew/ESC_DataReconciliation.git  
+> week13_finding_bugs\testing_adelle_chan  
+> - report: bug_discover_report.md
+> - testing files: test<...>.csv
+> - testing code: TestClass.java
+
+Soh Pei Xuan: https://github.com/bloomspx/esc-software-testing-campaign.git  
+> week13_finding_bugs\testing_soh_pei_xuan
+> - report: bug_discover_report.md
+> - testing files: test<...>.csv
+> - testing code: TestClass.java
+
